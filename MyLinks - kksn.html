@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<!-- saved from url=(0134)https://gensparkpublicblob.blob.core.windows.net/user-upload-image/page/toolu_01JipK77zV5g6hTtwtQb4R9A/mylinks_mobile_image_fixed.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLinks - 鈴木聖直</title>
+    <link href="./MyLinks - kksn_files/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./MyLinks - kksn_files/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+        }
+        
+        .tacos-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .sns-button {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            transition: all 0.3s ease;
+            border-radius: 15px;
+        }
+        
+        .sns-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+        
+        .game-canvas {
+            border-radius: 15px;
+            border: 3px solid #FF6B35;
+            background: linear-gradient(to bottom, #000428 0%, #004e92 100%);
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .add-sns-btn {
+            background: linear-gradient(45deg, #4CAF50, #66BB6A);
+        }
+        
+        .profile-avatar {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .flyer-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .flyer-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+        
+        .star-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .game-canvas {
+                width: 100% !important;
+                height: 200px !important;
+            }
+            
+            .flyer-image {
+                max-height: 400px;
+            }
+        }
+        
+        .game-info {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            color: white;
+        }
+        
+        .progress-bar {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+<style>
+    .genspark-notice-dialog {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10001;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .genspark-notice-content {
+      background-color: white;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 90%;
+      box-sizing: border-box;
+      padding: 10px 30px 30px 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+    }
+
+    .genspark-notice-title {
+      color: #000;
+      font-family: Arial;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; 
+    }
+
+    .genspark-notice-list {
+      margin: 24px 0;
+      
+      color: #606366;
+      font-family: Arial;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      padding-left: 12px;
+    }
+
+    .genspark-notice-list li {
+      margin-bottom: 12px;
+      list-style-type: disc;
+    }
+
+    .genspark-notice-list li a {
+      color: #606366;
+      text-decoration: underline;
+    }
+
+    .genspark-notice-checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      gap: 10px;
+
+      color: #232425;
+
+      font-family: Arial;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .genspark-notice-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+      
+    .genspark-notice-ok {
+      color: #232425;
+
+      text-align: center;
+      font-family: Arial;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; 
+
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      padding: 6px 14px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      width: 100%;
+    }
+  </style></head>
+<body class="min-h-screen">
+    <div class="star-bg" id="starBg"><div class="star" style="left: 4.81975%; top: 17.2274%; width: 2.50584px; height: 2.50584px; animation-delay: 2.62807s;"></div><div class="star" style="left: 62.8683%; top: 44.5753%; width: 3.99888px; height: 3.99888px; animation-delay: 0.206087s;"></div><div class="star" style="left: 12.2558%; top: 1.87728%; width: 1.69173px; height: 1.69173px; animation-delay: 0.449998s;"></div><div class="star" style="left: 28.279%; top: 33.6308%; width: 3.82939px; height: 3.82939px; animation-delay: 0.704686s;"></div><div class="star" style="left: 75.7668%; top: 37.4786%; width: 1.20471px; height: 1.20471px; animation-delay: 2.60813s;"></div><div class="star" style="left: 34.8018%; top: 85.3103%; width: 3.92358px; height: 3.92358px; animation-delay: 1.2658s;"></div><div class="star" style="left: 27.8803%; top: 40.0093%; width: 1.06156px; height: 1.06156px; animation-delay: 1.166s;"></div><div class="star" style="left: 99.1438%; top: 30.7433%; width: 3.77465px; height: 3.77465px; animation-delay: 1.83669s;"></div><div class="star" style="left: 6.31826%; top: 36.383%; width: 3.41319px; height: 3.41319px; animation-delay: 1.20032s;"></div><div class="star" style="left: 52.5356%; top: 12.0829%; width: 2.39839px; height: 2.39839px; animation-delay: 1.36555s;"></div><div class="star" style="left: 92.382%; top: 26.723%; width: 1.50864px; height: 1.50864px; animation-delay: 2.85679s;"></div><div class="star" style="left: 51.1214%; top: 7.48749%; width: 2.63588px; height: 2.63588px; animation-delay: 2.00323s;"></div><div class="star" style="left: 40.4666%; top: 81.8445%; width: 2.82529px; height: 2.82529px; animation-delay: 0.414856s;"></div><div class="star" style="left: 27.4497%; top: 23.4673%; width: 1.43494px; height: 1.43494px; animation-delay: 2.0214s;"></div><div class="star" style="left: 22.0669%; top: 75.4393%; width: 3.5504px; height: 3.5504px; animation-delay: 0.89394s;"></div><div class="star" style="left: 25.3505%; top: 46.5764%; width: 3.68325px; height: 3.68325px; animation-delay: 2.09318s;"></div><div class="star" style="left: 47.672%; top: 60.3703%; width: 2.87925px; height: 2.87925px; animation-delay: 0.255619s;"></div><div class="star" style="left: 67.638%; top: 49.3338%; width: 1.30604px; height: 1.30604px; animation-delay: 2.23896s;"></div><div class="star" style="left: 7.67134%; top: 20.0436%; width: 3.05324px; height: 3.05324px; animation-delay: 0.41149s;"></div><div class="star" style="left: 13.2786%; top: 86.0389%; width: 3.61031px; height: 3.61031px; animation-delay: 2.6635s;"></div><div class="star" style="left: 53.3097%; top: 21.4132%; width: 2.86262px; height: 2.86262px; animation-delay: 1.99662s;"></div><div class="star" style="left: 77.5468%; top: 22.4059%; width: 2.67986px; height: 2.67986px; animation-delay: 2.44283s;"></div><div class="star" style="left: 64.321%; top: 24.719%; width: 2.1943px; height: 2.1943px; animation-delay: 0.293174s;"></div><div class="star" style="left: 79.5693%; top: 93.4084%; width: 2.48505px; height: 2.48505px; animation-delay: 1.99938s;"></div><div class="star" style="left: 30.1969%; top: 25.6773%; width: 3.26959px; height: 3.26959px; animation-delay: 1.77974s;"></div><div class="star" style="left: 69.861%; top: 43.7776%; width: 1.1693px; height: 1.1693px; animation-delay: 0.132147s;"></div><div class="star" style="left: 74.1825%; top: 20.0257%; width: 2.2178px; height: 2.2178px; animation-delay: 2.78737s;"></div><div class="star" style="left: 29.0358%; top: 42.6527%; width: 2.56005px; height: 2.56005px; animation-delay: 1.54879s;"></div><div class="star" style="left: 1.00734%; top: 18.5243%; width: 3.50042px; height: 3.50042px; animation-delay: 1.07328s;"></div><div class="star" style="left: 1.88177%; top: 75.6577%; width: 1.74029px; height: 1.74029px; animation-delay: 1.31325s;"></div><div class="star" style="left: 51.9705%; top: 35.5964%; width: 1.00049px; height: 1.00049px; animation-delay: 0.2731s;"></div><div class="star" style="left: 68.4374%; top: 29.5215%; width: 1.67077px; height: 1.67077px; animation-delay: 2.64482s;"></div><div class="star" style="left: 78.4589%; top: 3.19127%; width: 1.59095px; height: 1.59095px; animation-delay: 2.53608s;"></div><div class="star" style="left: 55.7479%; top: 92.2834%; width: 1.98662px; height: 1.98662px; animation-delay: 2.32767s;"></div><div class="star" style="left: 33.5259%; top: 5.61403%; width: 1.95884px; height: 1.95884px; animation-delay: 0.398208s;"></div><div class="star" style="left: 86.0405%; top: 88.8471%; width: 2.41915px; height: 2.41915px; animation-delay: 2.68736s;"></div><div class="star" style="left: 51.3425%; top: 90.5308%; width: 1.35641px; height: 1.35641px; animation-delay: 2.42208s;"></div><div class="star" style="left: 54.0665%; top: 38.2148%; width: 3.86501px; height: 3.86501px; animation-delay: 0.654526s;"></div><div class="star" style="left: 41.6628%; top: 16.5845%; width: 1.09672px; height: 1.09672px; animation-delay: 2.13805s;"></div><div class="star" style="left: 38.7361%; top: 5.44569%; width: 1.28284px; height: 1.28284px; animation-delay: 0.705326s;"></div><div class="star" style="left: 14.3519%; top: 8.80175%; width: 3.05913px; height: 3.05913px; animation-delay: 0.830813s;"></div><div class="star" style="left: 46.6036%; top: 68.7043%; width: 1.01165px; height: 1.01165px; animation-delay: 2.37565s;"></div><div class="star" style="left: 21.0207%; top: 25.0284%; width: 2.06031px; height: 2.06031px; animation-delay: 2.11686s;"></div><div class="star" style="left: 52.4254%; top: 82.4782%; width: 2.3192px; height: 2.3192px; animation-delay: 1.94593s;"></div><div class="star" style="left: 61.8467%; top: 51.7692%; width: 3.17426px; height: 3.17426px; animation-delay: 1.60881s;"></div><div class="star" style="left: 71.3277%; top: 77.3834%; width: 1.89855px; height: 1.89855px; animation-delay: 1.98556s;"></div><div class="star" style="left: 8.83757%; top: 36.4485%; width: 1.35609px; height: 1.35609px; animation-delay: 0.982592s;"></div><div class="star" style="left: 3.83332%; top: 21.7074%; width: 2.3533px; height: 2.3533px; animation-delay: 1.40588s;"></div><div class="star" style="left: 86.7537%; top: 48.8924%; width: 3.84406px; height: 3.84406px; animation-delay: 2.5262s;"></div><div class="star" style="left: 66.6724%; top: 44.0137%; width: 3.77432px; height: 3.77432px; animation-delay: 2.57447s;"></div></div>
+    
+    <div class="container mx-auto py-4 px-2 max-w-md">
+        
+        <!-- Profile Section -->
+        <div class="tacos-card p-6 mb-6 text-center">
+            <div class="profile-avatar" onclick="uploadProfileImage()">
+                <span id="profileEmoji">🌮</span>
+                <img id="profileImage" style="display: none;" alt="プロフィール画像">
+            </div>
+            <h1 class="text-2xl font-bold text-white mb-1">鈴木 聖直</h1>
+            <p class="text-gray-300 text-sm">Suzuki Sena</p>
+        </div>
+
+        <!-- SNS Links Section -->
+        <div class="tacos-card p-6 mb-6">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center">
+                <i class="fas fa-share-alt mr-2 text-orange-500"></i>
+                SNS Links
+            </h2>
+            
+            <div class="space-y-3">
+                <a href="https://instagram.com/ayrton_jpn" target="_blank" class="sns-button text-white p-4 rounded-lg flex items-center justify-center w-full block">
+                    <i class="fab fa-instagram mr-3 text-xl"></i>
+                    <span class="font-semibold">@ayrton_jpn</span>
+                </a>
+                
+                <a href="https://instagram.com/diner_foodparty" target="_blank" class="sns-button text-white p-4 rounded-lg flex items-center justify-center w-full block">
+                    <i class="fab fa-instagram mr-3 text-xl"></i>
+                    <span class="font-semibold">@diner_foodparty</span>
+                </a>
+            </div>
+            
+            <button onclick="addNewSNS()" class="add-sns-btn text-white p-3 rounded-lg mt-4 w-full flex items-center justify-center">
+                <i class="fas fa-plus mr-2"></i>
+                <span>SNSを追加</span>
+            </button>
+        </div>
+
+        <!-- Event Information Section -->
+        <div class="tacos-card p-6 mb-6">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center">
+                <i class="fas fa-calendar-alt mr-2 text-orange-500"></i>
+                イベント情報
+            </h2>
+            
+            <div class="flyer-container">
+                <img src="./MyLinks - kksn_files/8d56eb2b63ba833c4411df44f14eddda" alt="TACOS DINER - AUGUST 24, 2025" class="flyer-image" onerror="this.style.display=&#39;none&#39;; this.nextElementSibling.style.display=&#39;block&#39;;">
+                <div style="display: none; color: white; text-center; padding: 20px;">
+                    <i class="fas fa-image text-4xl mb-4 text-orange-500"></i>
+                    <h3 class="text-xl font-bold mb-2">TACOS DINER</h3>
+                    <p class="text-lg">AUGUST 24, 2025</p>
+                    <p class="text-sm mt-2">TACO PLANET - SPACEPORT DRIVE</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spaceship Taco Collection Game Section -->
+        <div class="tacos-card p-6">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center">
+                <i class="fas fa-rocket mr-2 text-orange-500"></i>
+                🚀 宇宙船タコス収集 - TACO PLANET への旅
+            </h2>
+            
+            <div class="game-info">
+                <div class="flex justify-between text-sm mb-2">
+                    <span>ステージ: <span id="currentStage" class="font-bold text-orange-400">1</span>/10</span>
+                    <span>レベル: <span id="playerLevel" class="font-bold text-orange-400">1</span></span>
+                </div>
+                <div class="progress-bar mb-2">
+                    <div id="stageProgress" class="progress-fill"></div>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span>スコア: <span id="gameScore" class="font-bold text-orange-400">0</span></span>
+                    <span>ハイスコア: <span id="highScore" class="font-bold text-orange-400">0</span></span>
+                </div>
+            </div>
+
+            <canvas id="gameCanvas" class="game-canvas w-full" width="350" height="200"></canvas>
+            
+            <div class="mt-4 flex flex-wrap gap-2 justify-center">
+                <button id="startButton" onclick="startGame()" class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+                    <i class="fas fa-play mr-1"></i>開始
+                </button>
+                <button id="pauseButton" onclick="pauseGame()" class="bg-yellow-500 text-white px-4 py-2 rounded-lg text-sm font-semibold" disabled="">
+                    <i class="fas fa-pause mr-1"></i>一時停止
+                </button>
+                <button id="resetButton" onclick="resetGame()" class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+                    <i class="fas fa-redo mr-1"></i>リセット
+                </button>
+            </div>
+            
+            <div id="gameOverScreen" class="text-center mt-4 hidden">
+                <div class="bg-red-900 bg-opacity-80 rounded-lg p-4 text-white">
+                    <h3 class="font-bold text-xl mb-2">ゲームオーバー!</h3>
+                    <p class="text-sm mb-2">到達ステージ: <span id="finalStage" class="font-bold text-orange-400"></span></p>
+                    <p class="text-sm">最終スコア: <span id="finalScore" class="font-bold text-orange-400"></span></p>
+                </div>
+            </div>
+            
+            <div id="stageClearScreen" class="text-center mt-4 hidden">
+                <div class="bg-green-900 bg-opacity-80 rounded-lg p-4 text-white">
+                    <h3 class="font-bold text-xl mb-2">ステージクリア!</h3>
+                    <p class="text-sm mb-2">次のステージへ進みます...</p>
+                    <div class="progress-bar">
+                        <div id="nextStageProgress" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="profileImageInput" accept="image/*" style="display: none;" onchange="handleProfileImageUpload(event)">
+
+    <script>
+        // Game Variables
+        let canvas, ctx;
+        let gameRunning = false;
+        let gamePaused = false;
+        let gameLoop = null;
+        let score = 0;
+        let highScore = parseInt(localStorage.getItem('tacosHighScore') || '0');
+        let currentStage = 1;
+        let playerLevel = 1;
+        let stageProgress = 0;
+        let maxStages = 10;
+        
+        // Game Objects
+        let player = {
+            x: 50,
+            y: 150,
+            width: 25,
+            height: 25,
+            velocityY: 0,
+            jumpCount: 0,
+            maxJumps: 3,
+            onGround: true,
+            health: 100,
+            shields: 0
+        };
+        
+        let items = [];
+        let obstacles = [];
+        let powerUps = [];
+        let particles = [];
+        let gameSpeed = 2;
+        let baseGameSpeed = 2;
+        
+        // Game Constants
+        const GRAVITY = 0.6;
+        const JUMP_FORCE = -12;
+        const GROUND_Y = 170;
+        const CANVAS_WIDTH = 350;
+        const CANVAS_HEIGHT = 200;
+
+        // Stage Data
+        const stageData = [
+            { name: "地球軌道", color: "#4FC3F7", targetScore: 500 },
+            { name: "月面基地", color: "#9E9E9E", targetScore: 800 },
+            { name: "火星探索", color: "#FF7043", targetScore: 1200 },
+            { name: "小惑星帯", color: "#8D6E63", targetScore: 1600 },
+            { name: "木星圏", color: "#FF9800", targetScore: 2000 },
+            { name: "土星の輪", color: "#FFC107", targetScore: 2500 },
+            { name: "天王星嵐", color: "#00BCD4", targetScore: 3000 },
+            { name: "海王星深海", color: "#3F51B5", targetScore: 3500 },
+            { name: "冥王星氷原", color: "#607D8B", targetScore: 4000 },
+            { name: "TACO PLANET", color: "#FF6B35", targetScore: 5000 }
+        ];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            canvas = document.getElementById('gameCanvas');
+            ctx = canvas.getContext('2d');
+            
+            // Set canvas size for mobile
+            const container = canvas.parentElement;
+            const containerWidth = container.clientWidth - 40;
+            canvas.width = Math.min(containerWidth, CANVAS_WIDTH);
+            canvas.height = CANVAS_HEIGHT;
+            
+            // Touch events for mobile
+            canvas.addEventListener('touchstart', handleTouch, { passive: false });
+            canvas.addEventListener('click', handleClick);
+            
+            updateHighScoreDisplay();
+            updateStageDisplay();
+            drawInitialScreen();
+            createStars();
+            
+            // Load saved profile image
+            const savedProfileImage = localStorage.getItem('profileImage');
+            if (savedProfileImage) {
+                const img = document.getElementById('profileImage');
+                img.src = savedProfileImage;
+                img.style.display = 'block';
+                document.getElementById('profileEmoji').style.display = 'none';
+            }
+        });
+
+        function createStars() {
+            const starBg = document.getElementById('starBg');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starBg.appendChild(star);
+            }
+        }
+
+        function handleTouch(e) {
+            e.preventDefault();
+            if (gameRunning && !gamePaused) {
+                jump();
+            }
+        }
+        
+        function handleClick(e) {
+            if (gameRunning && !gamePaused) {
+                jump();
+            }
+        }
+
+        function jump() {
+            if (player.jumpCount < player.maxJumps) {
+                player.velocityY = JUMP_FORCE;
+                player.jumpCount++;
+                player.onGround = false;
+                createJumpParticles();
+            }
+        }
+
+        function createJumpParticles() {
+            for (let i = 0; i < 5; i++) {
+                particles.push({
+                    x: player.x + player.width / 2,
+                    y: player.y + player.height,
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: Math.random() * -2 - 1,
+                    life: 30,
+                    maxLife: 30,
+                    color: '#FF6B35'
+                });
+            }
+        }
+
+        function startGame() {
+            if (gameRunning) return;
+            
+            gameRunning = true;
+            gamePaused = false;
+            score = 0;
+            currentStage = 1;
+            playerLevel = 1;
+            stageProgress = 0;
+            gameSpeed = baseGameSpeed;
+            items = [];
+            obstacles = [];
+            powerUps = [];
+            particles = [];
+            
+            // Reset player
+            player.x = 50;
+            player.y = GROUND_Y - player.height;
+            player.velocityY = 0;
+            player.jumpCount = 0;
+            player.onGround = true;
+            player.health = 100;
+            player.shields = 0;
+            
+            document.getElementById('startButton').disabled = true;
+            document.getElementById('pauseButton').disabled = false;
+            document.getElementById('gameOverScreen').classList.add('hidden');
+            document.getElementById('stageClearScreen').classList.add('hidden');
+            
+            updateStageDisplay();
+            gameLoop = setInterval(updateGame, 1000/60);
+        }
+
+        function pauseGame() {
+            if (!gameRunning) return;
+            
+            gamePaused = !gamePaused;
+            const pauseBtn = document.getElementById('pauseButton');
+            
+            if (gamePaused) {
+                pauseBtn.innerHTML = '<i class="fas fa-play mr-1"></i>再開';
+                clearInterval(gameLoop);
+            } else {
+                pauseBtn.innerHTML = '<i class="fas fa-pause mr-1"></i>一時停止';
+                gameLoop = setInterval(updateGame, 1000/60);
+            }
+        }
+
+        function resetGame() {
+            gameRunning = false;
+            gamePaused = false;
+            if (gameLoop) {
+                clearInterval(gameLoop);
+                gameLoop = null;
+            }
+            
+            score = 0;
+            currentStage = 1;
+            playerLevel = 1;
+            stageProgress = 0;
+            
+            updateScoreDisplay();
+            updateStageDisplay();
+            document.getElementById('startButton').disabled = false;
+            document.getElementById('pauseButton').disabled = true;
+            document.getElementById('pauseButton').innerHTML = '<i class="fas fa-pause mr-1"></i>一時停止';
+            document.getElementById('gameOverScreen').classList.add('hidden');
+            document.getElementById('stageClearScreen').classList.add('hidden');
+            
+            drawInitialScreen();
+        }
+
+        function updateGame() {
+            if (!gameRunning || gamePaused) return;
+            
+            updatePlayer();
+            updateItems();
+            updateObstacles();
+            updatePowerUps();
+            updateParticles();
+            generateGameElements();
+            checkCollisions();
+            checkStageProgression();
+            
+            score += Math.floor(gameSpeed);
+            stageProgress += 1;
+            updateScoreDisplay();
+            updateStageDisplay();
+            
+            draw();
+        }
+
+        function updatePlayer() {
+            if (!player.onGround) {
+                player.velocityY += GRAVITY;
+            }
+            
+            player.y += player.velocityY;
+            
+            if (player.y >= GROUND_Y - player.height) {
+                player.y = GROUND_Y - player.height;
+                player.velocityY = 0;
+                player.jumpCount = 0;
+                player.onGround = true;
+            }
+        }
+
+        function updateItems() {
+            for (let i = items.length - 1; i >= 0; i--) {
+                items[i].x -= gameSpeed;
+                items[i].rotation += 0.1;
+                
+                if (items[i].x + items[i].width < 0) {
+                    items.splice(i, 1);
+                }
+            }
+        }
+
+        function updateObstacles() {
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                obstacles[i].x -= gameSpeed;
+                
+                if (obstacles[i].x + obstacles[i].width < 0) {
+                    obstacles.splice(i, 1);
+                }
+            }
+        }
+
+        function updatePowerUps() {
+            for (let i = powerUps.length - 1; i >= 0; i--) {
+                powerUps[i].x -= gameSpeed;
+                powerUps[i].pulse += 0.1;
+                
+                if (powerUps[i].x + powerUps[i].width < 0) {
+                    powerUps.splice(i, 1);
+                }
+            }
+        }
+
+        function updateParticles() {
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life--;
+                
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+        }
+
+        function generateGameElements() {
+            // Generate items
+            if (Math.random() < 0.02 + currentStage * 0.001) {
+                generateItem();
+            }
+            
+            // Generate obstacles
+            if (Math.random() < 0.01 + currentStage * 0.002 && currentStage > 1) {
+                generateObstacle();
+            }
+            
+            // Generate power-ups
+            if (Math.random() < 0.005) {
+                generatePowerUp();
+            }
+        }
+
+        function generateItem() {
+            let itemType = Math.random();
+            let item = {
+                x: canvas.width,
+                width: 20,
+                height: 20,
+                rotation: 0
+            };
+            
+            if (itemType < 0.6) {
+                item.type = 'taco';
+                item.y = GROUND_Y - 40 - Math.random() * 80;
+                item.points = 50;
+                item.emoji = '🌮';
+            } else if (itemType < 0.85) {
+                item.type = 'coin';
+                item.y = GROUND_Y - 30 - Math.random() * 60;
+                item.points = 20;
+                item.emoji = '🪙';
+            } else {
+                item.type = 'star';
+                item.y = GROUND_Y - 100 - Math.random() * 40;
+                item.points = 100;
+                item.emoji = '⭐';
+            }
+            
+            items.push(item);
+        }
+
+        function generateObstacle() {
+            let obstacle = {
+                x: canvas.width,
+                y: GROUND_Y - 30,
+                width: 25,
+                height: 30,
+                type: 'asteroid'
+            };
+            
+            obstacles.push(obstacle);
+        }
+
+        function generatePowerUp() {
+            let powerUpTypes = ['shield', 'speed', 'magnet', 'multi_jump'];
+            let type = powerUpTypes[Math.floor(Math.random() * powerUpTypes.length)];
+            
+            let powerUp = {
+                x: canvas.width,
+                y: GROUND_Y - 60 - Math.random() * 60,
+                width: 25,
+                height: 25,
+                type: type,
+                pulse: 0
+            };
+            
+            powerUps.push(powerUp);
+        }
+
+        function checkCollisions() {
+            // Item collisions
+            for (let i = items.length - 1; i >= 0; i--) {
+                let item = items[i];
+                if (checkCollision(player, item)) {
+                    score += item.points;
+                    createCollectParticles(item.x, item.y, item.emoji);
+                    items.splice(i, 1);
+                }
+            }
+            
+            // Obstacle collisions
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                let obstacle = obstacles[i];
+                if (checkCollision(player, obstacle)) {
+                    if (player.shields > 0) {
+                        player.shields--;
+                        obstacles.splice(i, 1);
+                        createShieldParticles();
+                    } else {
+                        gameOver();
+                        return;
+                    }
+                }
+            }
+            
+            // Power-up collisions
+            for (let i = powerUps.length - 1; i >= 0; i--) {
+                let powerUp = powerUps[i];
+                if (checkCollision(player, powerUp)) {
+                    applyPowerUp(powerUp.type);
+                    powerUps.splice(i, 1);
+                }
+            }
+        }
+
+        function checkCollision(rect1, rect2) {
+            return rect1.x < rect2.x + rect2.width &&
+                   rect1.x + rect1.width > rect2.x &&
+                   rect1.y < rect2.y + rect2.height &&
+                   rect1.y + rect1.height > rect2.y;
+        }
+
+        function createCollectParticles(x, y, emoji) {
+            for (let i = 0; i < 8; i++) {
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 6,
+                    vy: Math.random() * -4 - 2,
+                    life: 40,
+                    maxLife: 40,
+                    color: '#FFD700',
+                    emoji: emoji
+                });
+            }
+        }
+
+        function createShieldParticles() {
+            for (let i = 0; i < 10; i++) {
+                particles.push({
+                    x: player.x + player.width / 2,
+                    y: player.y + player.height / 2,
+                    vx: (Math.random() - 0.5) * 8,
+                    vy: (Math.random() - 0.5) * 8,
+                    life: 30,
+                    maxLife: 30,
+                    color: '#00BCD4'
+                });
+            }
+        }
+
+        function applyPowerUp(type) {
+            switch(type) {
+                case 'shield':
+                    player.shields = Math.min(player.shields + 1, 3);
+                    break;
+                case 'speed':
+                    gameSpeed = Math.min(gameSpeed + 1, 10);
+                    setTimeout(() => { gameSpeed = Math.max(gameSpeed - 1, baseGameSpeed); }, 5000);
+                    break;
+                case 'magnet':
+                    // Attract nearby items (simplified)
+                    items.forEach(item => {
+                        if (Math.abs(item.x - player.x) < 100) {
+                            item.x = player.x;
+                        }
+                    });
+                    break;
+                case 'multi_jump':
+                    player.maxJumps = Math.min(player.maxJumps + 1, 5);
+                    setTimeout(() => { player.maxJumps = Math.max(player.maxJumps - 1, 3); }, 10000);
+                    break;
+            }
+        }
+
+        function checkStageProgression() {
+            const currentStageData = stageData[currentStage - 1];
+            const progressPercent = (score / currentStageData.targetScore) * 100;
+            
+            document.getElementById('stageProgress').style.width = Math.min(progressPercent, 100) + '%';
+            
+            if (score >= currentStageData.targetScore && currentStage < maxStages) {
+                advanceStage();
+            } else if (score >= currentStageData.targetScore && currentStage === maxStages) {
+                gameComplete();
+            }
+        }
+
+        function advanceStage() {
+            currentStage++;
+            playerLevel = Math.floor(score / 500) + 1;
+            gameSpeed = baseGameSpeed + (currentStage - 1) * 0.5;
+            
+            showStageClear();
+            updateStageDisplay();
+            
+            setTimeout(() => {
+                document.getElementById('stageClearScreen').classList.add('hidden');
+            }, 2000);
+        }
+
+        function showStageClear() {
+            document.getElementById('stageClearScreen').classList.remove('hidden');
+            let progress = 0;
+            const progressBar = document.getElementById('nextStageProgress');
+            
+            const progressInterval = setInterval(() => {
+                progress += 5;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                }
+            }, 40);
+        }
+
+        function gameComplete() {
+            gameRunning = false;
+            if (gameLoop) {
+                clearInterval(gameLoop);
+                gameLoop = null;
+            }
+            
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem('tacosHighScore', highScore.toString());
+                updateHighScoreDisplay();
+            }
+            
+            alert('🎉 TACO PLANET到達！おめでとうございます！🌮🚀');
+            resetGame();
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            drawBackground();
+            drawGround();
+            drawPlayer();
+            drawItems();
+            drawObstacles();
+            drawPowerUps();
+            drawParticles();
+            drawHUD();
+        }
+
+        function drawBackground() {
+            const currentStageData = stageData[currentStage - 1];
+            const gradient = ctx.createLinearGradient(0, 0, 0, GROUND_Y);
+            gradient.addColorStop(0, '#000428');
+            gradient.addColorStop(0.5, currentStageData.color + '40');
+            gradient.addColorStop(1, '#004e92');
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, GROUND_Y);
+            
+            // Draw stars
+            ctx.fillStyle = 'white';
+            for (let i = 0; i < 20; i++) {
+                ctx.beginPath();
+                ctx.arc((i * 50 + Date.now() * 0.01) % canvas.width, 
+                       (i * 30) % (GROUND_Y - 20) + 10, 1, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function drawGround() {
+            ctx.fillStyle = '#2C1810';
+            ctx.fillRect(0, GROUND_Y, canvas.width, canvas.height - GROUND_Y);
+        }
+
+        function drawPlayer() {
+            ctx.save();
+            ctx.translate(player.x + player.width/2, player.y + player.height/2);
+            
+            // Draw rocket body
+            ctx.fillStyle = '#FF6B35';
+            ctx.fillRect(-player.width/2, -player.height/2, player.width, player.height);
+            
+            // Draw rocket tip
+            ctx.fillStyle = '#F7931E';
+            ctx.beginPath();
+            ctx.moveTo(-player.width/2, -player.height/2);
+            ctx.lineTo(0, -player.height/2 - 8);
+            ctx.lineTo(player.width/2, -player.height/2);
+            ctx.fill();
+            
+            // Draw engine flame
+            if (!player.onGround) {
+                ctx.fillStyle = '#FF4444';
+                ctx.fillRect(-5, player.height/2, 10, 8);
+            }
+            
+            // Draw shield
+            if (player.shields > 0) {
+                ctx.strokeStyle = '#00BCD4';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(0, 0, player.width/2 + 5, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            
+            ctx.restore();
+        }
+
+        function drawItems() {
+            items.forEach(item => {
+                ctx.save();
+                ctx.translate(item.x + item.width/2, item.y + item.height/2);
+                ctx.rotate(item.rotation);
+                
+                ctx.font = '16px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(item.emoji, 0, 5);
+                
+                ctx.restore();
+            });
+        }
+
+        function drawObstacles() {
+            obstacles.forEach(obstacle => {
+                ctx.fillStyle = '#8D6E63';
+                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                
+                // Add some texture
+                ctx.fillStyle = '#5D4E37';
+                ctx.fillRect(obstacle.x + 5, obstacle.y + 5, 15, 20);
+            });
+        }
+
+        function drawPowerUps() {
+            powerUps.forEach(powerUp => {
+                ctx.save();
+                ctx.translate(powerUp.x + powerUp.width/2, powerUp.y + powerUp.height/2);
+                
+                const pulseScale = 1 + Math.sin(powerUp.pulse) * 0.2;
+                ctx.scale(pulseScale, pulseScale);
+                
+                let emoji = '⚡';
+                switch(powerUp.type) {
+                    case 'shield': emoji = '🛡️'; break;
+                    case 'speed': emoji = '⚡'; break;
+                    case 'magnet': emoji = '🧲'; break;
+                    case 'multi_jump': emoji = '👟'; break;
+                }
+                
+                ctx.font = '20px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(emoji, 0, 5);
+                
+                ctx.restore();
+            });
+        }
+
+        function drawParticles() {
+            particles.forEach(particle => {
+                ctx.save();
+                const alpha = particle.life / particle.maxLife;
+                
+                if (particle.emoji) {
+                    ctx.globalAlpha = alpha;
+                    ctx.font = '12px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(particle.emoji, particle.x, particle.y);
+                } else {
+                    ctx.globalAlpha = alpha;
+                    ctx.fillStyle = particle.color;
+                    ctx.fillRect(particle.x - 2, particle.y - 2, 4, 4);
+                }
+                
+                ctx.restore();
+            });
+        }
+
+        function drawHUD() {
+            // Draw shields
+            for (let i = 0; i < player.shields; i++) {
+                ctx.font = '16px Arial';
+                ctx.fillText('🛡️', 10 + i * 20, 25);
+            }
+            
+            // Draw jumps remaining
+            const jumpsLeft = player.maxJumps - player.jumpCount;
+            for (let i = 0; i < jumpsLeft; i++) {
+                ctx.font = '12px Arial';
+                ctx.fillText('↑', canvas.width - 30 + i * 8, 25);
+            }
+        }
+
+        function drawInitialScreen() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBackground();
+            drawGround();
+            
+            player.y = GROUND_Y - player.height;
+            drawPlayer();
+            
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 18px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('🚀 宇宙船タコス収集', canvas.width/2, canvas.height/2 - 30);
+            
+            ctx.font = '14px Arial';
+            ctx.fillText('TACO PLANETへの壮大な旅', canvas.width/2, canvas.height/2 - 10);
+            ctx.fillText('タップで3段ジャンプ！', canvas.width/2, canvas.height/2 + 10);
+            ctx.fillText('10ステージクリアを目指そう', canvas.width/2, canvas.height/2 + 30);
+        }
+
+        function updateScoreDisplay() {
+            document.getElementById('gameScore').textContent = score.toLocaleString();
+        }
+
+        function updateHighScoreDisplay() {
+            document.getElementById('highScore').textContent = highScore.toLocaleString();
+        }
+
+        function updateStageDisplay() {
+            document.getElementById('currentStage').textContent = currentStage;
+            document.getElementById('playerLevel').textContent = playerLevel;
+        }
+
+        function gameOver() {
+            gameRunning = false;
+            if (gameLoop) {
+                clearInterval(gameLoop);
+                gameLoop = null;
+            }
+            
+            if (score > highScore) {
+                highScore = score;
+                localStorage.setItem('tacosHighScore', highScore.toString());
+                updateHighScoreDisplay();
+            }
+            
+            document.getElementById('finalStage').textContent = currentStage;
+            document.getElementById('finalScore').textContent = score.toLocaleString();
+            document.getElementById('gameOverScreen').classList.remove('hidden');
+            document.getElementById('startButton').disabled = false;
+            document.getElementById('pauseButton').disabled = true;
+        }
+
+        // Profile Image Functions
+        function uploadProfileImage() {
+            document.getElementById('profileImageInput').click();
+        }
+
+        function handleProfileImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById('profileImage');
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                    document.getElementById('profileEmoji').style.display = 'none';
+                    
+                    // Save to localStorage
+                    localStorage.setItem('profileImage', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // SNS Management
+        function addNewSNS() {
+            const name = prompt('SNSアカウント名を入力してください (例: @username):');
+            const url = prompt('URLを入力してください:');
+            
+            if (name && url) {
+                const snsContainer = document.querySelector('.space-y-3');
+                const newSNS = document.createElement('a');
+                newSNS.href = url;
+                newSNS.target = '_blank';
+                newSNS.className = 'sns-button text-white p-4 rounded-lg flex items-center justify-center w-full block';
+                newSNS.innerHTML = `
+                    <i class="fas fa-link mr-3 text-xl"></i>
+                    <span class="font-semibold">${name}</span>
+                `;
+                
+                snsContainer.appendChild(newSNS);
+            }
+        }
+
+        // Resize handler for mobile
+        window.addEventListener('resize', function() {
+            if (canvas) {
+                const container = canvas.parentElement;
+                const containerWidth = container.clientWidth - 40;
+                canvas.width = Math.min(containerWidth, CANVAS_WIDTH);
+                
+                if (!gameRunning) {
+                    drawInitialScreen();
+                }
+            }
+        });
+    </script>
+
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDqmo3uNMwL6oTSukKe7rQeTXzH0R4cUbw8P3wurAKljTfZgNZjzzMgEvP7GaJsKGyP774iWdVuB4%2Bu3b%2BnPPfzWd1nr04eTq31ISFCtL9l7RxUl6Wz5JG0XIkXepXV8DNmFfem7NtZrmWg9jYYRsPzvcgVz6oEVWAnNRke%2Fm0Ye1calOTHskYQphUjZnGoeKE7mJQUYGn7mZgfvy4bI5KR8Kq7PFgGgq2RZ2VNDV4lv1zLK0KtVqeX7RbTb%2BDg3W1F5C9%2FNIeRghVnY4tFkCipvyN3OaYLL21CCZTblXDRLpD8BcmQerwqUXH%2F4V6iYdopz%2FlhyxjSjyvz%2BTr6rVb1EvGQ6Vekfy7S66X16KS0knOQf34JDp6N9SqA0urVO%2FCpXaoA6aZF2%2BWKnLateoQRkBeNaDTkkUioKY4tJHaf4seGA5E0jd8itUxFnC35opStwKtZrYvPtBLXtO1Qrj401UkV90H6fchuFOObRZtYFS%2Fw1u2G2IngGkBJ9r2Brx5auUmzOXRJMFM1KJP4qmkhw%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDqmo3uNMwL6oTSukKe7rQeTXzH0R4cUbw8P3wurAKljTfZgNZjzzMgEvP7GaJsKGyP774iWdVuB4+u3b+nPPfzWd1nr04eTq31ISFCtL9l7RxUl6Wz5JG0XIkXepXV8DNmFfem7NtZrmWg9jYYRsPzvcgVz6oEVWAnNRke/m0Ye1calOTHskYQphUjZnGoeKE7mJQUYGn7mZgfvy4bI5KR8Kq7PFgGgq2RZ2VNDV4lv1zLK0KtVqeX7RbTb+Dg3W1F5C9/NIeRghVnY4tFkCipvyN3OaYLL21CCZTblXDRLpD8BcmQerwqUXH/4V6iYdopz/lhyxjSjyvz+Tr6rVb1EvGQ6Vekfy7S66X16KS0knOQf34JDp6N9SqA0urVO/CpXaoA6aZF2+WKnLateoQRkBeNaDTkkUioKY4tJHaf4seGA5E0jd8itUxFnC35opStwKtZrYvPtBLXtO1Qrj401UkV90H6fchuFOObRZtYFS/w1u2G2IngGkBJ9r2Brx5auUmzOXRJMFM1KJP4qmkhw=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="./MyLinks - kksn_files/notice_dialog.js.ダウンロード"></script>
+    </body></html>
